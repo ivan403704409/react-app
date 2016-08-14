@@ -5,8 +5,27 @@ import 'antd/dist/antd.css';
 
 import { DatePicker } from 'antd';
 
+import { Button, notification } from 'antd';
+const openNotification = function () {
+  notification.open({
+    message: '这是标题',
+    description: '这是提示框的文案这是提示框的文案这是提示框的文案这是提示框的文案这是提示框的文案这是提示框的文案这是提示框的文案',
+  });
+};
 
-  
+
+import { Popconfirm, message } from 'antd';
+
+function confirm() {
+  message.success('点击了确定');
+}
+
+function cancel() {
+  message.error('点击了取消');
+}
+
+
+  // http://www.uprogrammer.cn/react-router-cn/
 class App extends Component {
   render() {
     return (
@@ -19,6 +38,12 @@ class App extends Component {
           Hey REACT
         </p>
         <DatePicker></DatePicker>
+        <Button type="primary" onClick={openNotification}>打开通知提醒框</Button>
+        
+          <Popconfirm title="确定要删除这个任务吗？" onConfirm={confirm} onCancel={cancel}>
+            <a href="#">删除</a>
+          </Popconfirm>
+
       </div>
     );
   }
